@@ -1,14 +1,71 @@
 ﻿============================= test session starts =============================
-platform win32 -- Python 3.13.0, pytest-9.1.1, pluggy-1.7.0
+platform win32 -- Python 3.13.0, pytest-9.1.1, pluggy-1.7.0 -- C:\Program Files\Python313\python.exe
+cachedir: .pytest_cache
 rootdir: C:\Users\Administrator\Desktop\work
 configfile: pytest.ini
 testpaths: tests
 plugins: anyio-4.15.1
-collected 59 items
+collecting ... collected 59 items
 
-tests\test_ledger_api.py ..................                              [ 30%]
-tests\test_ledger_storage.py ..........                                  [ 47%]
-tests\test_report_gen.py ...............................                 [100%]
+tests/test_ledger_api.py::test_������� PASSED                           [  1%]
+tests/test_ledger_api.py::test_������ˮ����201 PASSED                    [  3%]
+tests/test_ledger_api.py::test_�б��ҳ��ɸѡ PASSED                     [  5%]
+tests/test_ledger_api.py::test_��������֧������� PASSED                 [  6%]
+tests/test_ledger_api.py::test_���ܿ����ݷ���0�����Ǳ��� PASSED          [  8%]
+tests/test_ledger_api.py::test_���������0[0] PASSED                   [ 10%]
+tests/test_ledger_api.py::test_���������0[-1] PASSED                  [ 11%]
+tests/test_ledger_api.py::test_���������0[-99.9] PASSED               [ 13%]
+tests/test_ledger_api.py::test_���ͱ���Ϸ� PASSED                       [ 15%]
+tests/test_ledger_api.py::test_���ڸ�ʽ�Ƿ�[2024/01/10] PASSED           [ 16%]
+tests/test_ledger_api.py::test_���ڸ�ʽ�Ƿ�[20240110] PASSED             [ 18%]
+tests/test_ledger_api.py::test_���ڸ�ʽ�Ƿ�[not-a-date] PASSED           [ 20%]
+tests/test_ledger_api.py::test_���ڸ�ʽ�Ƿ�[] PASSED                     [ 22%]
+tests/test_ledger_api.py::test_ȱ�ٱ����ֶ� PASSED                       [ 23%]
+tests/test_ledger_api.py::test_����Ϊ���ַ��� PASSED                     [ 25%]
+tests/test_ledger_api.py::test_��ҳ����Խ�� PASSED                       [ 27%]
+tests/test_ledger_api.py::test_����������ֹ�ߵ� PASSED                   [ 28%]
+tests/test_ledger_api.py::test_�Ƿ��������ؽṹ�������� PASSED           [ 30%]
+tests/test_ledger_storage.py::test_insert_��������ID PASSED              [ 32%]
+tests/test_ledger_storage.py::test_query_����������ȫ����ͳ������ PASSED [ 33%]
+tests/test_ledger_storage.py::test_query_������ɸѡ PASSED               [ 35%]
+tests/test_ledger_storage.py::test_query_������ɸѡ PASSED               [ 37%]
+tests/test_ledger_storage.py::test_query_����������ɸѡ PASSED           [ 38%]
+tests/test_ledger_storage.py::test_query_��ҳ PASSED                     [ 40%]
+tests/test_ledger_storage.py::test_summary_ȫ���� PASSED                 [ 42%]
+tests/test_ledger_storage.py::test_summary_ָ������ PASSED               [ 44%]
+tests/test_ledger_storage.py::test_summary_�����ݷ���0 PASSED            [ 45%]
+tests/test_ledger_storage.py::test_����д�벻������ PASSED               [ 47%]
+tests/test_report_gen.py::test_read_raw_������ȡ PASSED                  [ 49%]
+tests/test_report_gen.py::test_read_raw_�ļ������� PASSED                [ 50%]
+tests/test_report_gen.py::test_read_raw_��xlsx��׺ PASSED                [ 52%]
+tests/test_report_gen.py::test_read_raw_ȱ�ٱ����ֶ��� PASSED            [ 54%]
+tests/test_report_gen.py::test_read_raw_�ձ�ֻ�б�ͷ PASSED              [ 55%]
+tests/test_report_gen.py::test_clean_��������ʣ8�� PASSED                [ 57%]
+tests/test_report_gen.py::test_clean_�ؼ��ֶ���ȱʧ������Ϊ�� PASSED     [ 59%]
+tests/test_report_gen.py::test_clean_��ȫ�ֶ�ȥ�� PASSED                 [ 61%]
+tests/test_report_gen.py::test_clean_ɾ���ؼ��ֶ�ȱʧ�� PASSED           [ 62%]
+tests/test_report_gen.py::test_clean_�޳��������� PASSED                 [ 64%]
+tests/test_report_gen.py::test_clean_���޸�ԭʼDataFrame PASSED          [ 66%]
+tests/test_report_gen.py::test_clean_�հ��ַ�����Ϊȱʧ PASSED           [ 67%]
+tests/test_report_gen.py::test_clean_����Ϊ�ı���Ϊȱʧ PASSED           [ 69%]
+tests/test_report_gen.py::test_clean_����Ч���ݱ��� PASSED               [ 71%]
+tests/test_report_gen.py::test_round_amount_�������� PASSED              [ 72%]
+tests/test_report_gen.py::test_add_amount_���۶���������˵��� PASSED    [ 74%]
+tests/test_report_gen.py::test_������Ա���� PASSED                       [ 76%]
+tests/test_report_gen.py::test_���������� PASSED                         [ 77%]
+tests/test_report_gen.py::test_���»��� PASSED                           [ 79%]
+tests/test_report_gen.py::test_�ܶ�������ά�Ȼ���һ�� PASSED             [ 81%]
+tests/test_report_gen.py::test_��������ĸ������� PASSED                 [ 83%]
+tests/test_report_gen.py::test_��ϸ��ϴ���������� PASSED               [ 84%]
+tests/test_report_gen.py::test_������Ա���������� PASSED                 [ 86%]
+tests/test_report_gen.py::test_���������������� PASSED                   [ 88%]
+tests/test_report_gen.py::test_�����������ָ�����¶���ϸ PASSED         [ 89%]
+tests/test_report_gen.py::test_�˵���_���ɱ�����ԭʼ�ļ�δ���޸� PASSED  [ 91%]
+tests/test_report_gen.py::test_�ܾ��ѱ���д��ԭʼ�ļ��� PASSED           [ 93%]
+tests/test_report_gen.py::test_CLI_�ļ������ڷ���1����ʾ PASSED          [ 94%]
+tests/test_report_gen.py::test_CLI_ȱ�з���1����ʾȱ���� PASSED          [ 96%]
+tests/test_report_gen.py::test_CLI_����Ч���ݷ���1����ʾ PASSED          [ 98%]
+tests/test_report_gen.py::test_CLI_����ִ�з���0 PASSED                  [100%]
 
 ============================== warnings summary ===============================
 ..\..\..\..\Program Files\Python313\Lib\site-packages\fastapi\testclient.py:1
@@ -16,4 +73,4 @@ tests\test_report_gen.py ...............................                 [100%]
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-======================== 59 passed, 1 warning in 2.96s ========================
+======================== 59 passed, 1 warning in 2.95s ========================
