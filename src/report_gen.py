@@ -240,6 +240,13 @@ def generate_report(
 
     原始文件仅以只读方式读取，不做任何写回。
     """
+    # 输出与原始文件指向同一文件时直接拒绝，避免把原始数据覆盖掉
+    input_file, output_file = Path(input_path), Path(output_path)
+    if input_file.resolve() == output_file.resolve():
+        raise ReportError(
+            f"输出路径与原始文件相同（{input_file}），会覆盖原始数据；请为 --output 指定其他文件。"
+        )
+
     raw = read_raw(input_path)
     cleaned = clean_data(raw)
     cleaned_with_amount = add_amount(cleaned)

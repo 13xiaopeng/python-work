@@ -287,6 +287,26 @@ def test_端到端_生成报表且原始文件未被修改(tmp_path, raw_df):
     assert raw_df.iloc[0]["销售员"] == "张三"  # 内存中的原始数据未被就地改动
 
 
+def test_拒绝把报表写到原始文件上(tmp_path, raw_df, capsys):
+    """--output 与 --input 指向同一文件时必须报错，否则会覆盖原始数据。"""
+    raw_path = tmp_path / "sales_raw.xlsx"
+    raw_df.to_excel(raw_path, index=False, engine="openpyxl")
+    before = raw_path.read_bytes()
+
+    with pytest.raises(ReportError, match="相同"):
+        generate_report(raw_path, raw_path)
+
+    # 路径写法不同（多一层 .）也应识别为同一文件
+    with pytest.raises(ReportError, match="相同"):
+        generate_report(raw_path, tmp_path / "." / "sales_raw.xlsx")
+
+    exit_code = main(["--input", str(raw_path), "--output", str(raw_path)])
+    captured = capsys.readouterr()
+    assert exit_code == 1
+    assert "覆盖" in captured.err
+    assert raw_path.read_bytes() == before, "原始文件被覆盖了！"
+
+
 def test_CLI_文件不存在返回1并提示(tmp_path, capsys):
     exit_code = main(["--input", str(tmp_path / "none.xlsx"), "--output", str(tmp_path / "o.xlsx")])
     captured = capsys.readouterr()
