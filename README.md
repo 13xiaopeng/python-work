@@ -16,6 +16,10 @@
 python -m pip install -r requirements.txt
 ```
 
+> Windows 提示：如果本机默认 `python` 是旧版本（例如 Anaconda 的 3.6），请显式使用 3.13：
+> `py -3.13 -m pip install -r requirements.txt`，后续命令同理写成 `py -3.13 -m ...`
+> （默认 `python` 版本过低时会直接 `ModuleNotFoundError`）。
+
 ## 一、考题一：Excel 报表生成
 
 ```bash
@@ -42,9 +46,13 @@ python -m src.report_gen --input data/sales_raw.xlsx --output output/report.xlsx
 3. 按全字段去重；
 4. 销售额 = 数量 × 单价，四舍五入保留 2 位小数。
 
+> 金额口径：**先按行四舍五入到 2 位小数，再按销售员/地区/月份汇总**。
+> 因此三种维度的合计与"总览"里的销售总额一致（样例数据均为 6450.00），不会出现汇总差几分的情况。
+
 约束与容错：
 
 - 原始文件以**只读**方式读取，绝不写回（测试中用 MD5 校验）；
+- `--output` 与 `--input` 指向同一文件时**直接报错退出**，拒绝覆盖原始数据；
 - 文件不存在、非 `.xlsx`、缺少必需字段列、空表、清洗后无有效数据等情况，均给出可读错误并返回退出码 1。
 
 ## 二、考题二：FastAPI 记账服务
@@ -79,7 +87,7 @@ python -m uvicorn src.ledger.main:app --host 127.0.0.1 --port 8000
 ## 三、测试
 
 ```bash
-python -m pytest -v                 # 全量 58 个用例
+python -m pytest -v                 # 全量 59 个用例
 python -m pytest tests/test_report_gen.py -v
 ```
 
@@ -99,6 +107,7 @@ work/
 ├── requirements.txt
 ├── pytest.ini
 ├── 需求分析.md
+├── Python_Vibe_Coding-lab1.docx  # 题目原件（仅供对照，非交付文档）
 ├── data/sales_raw.xlsx           # 样例原始数据（含脏数据，只读）
 ├── output/report.xlsx            # 考题一输出
 ├── docs/                         # 测试运行结果、AI 协作记录与复盘
