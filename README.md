@@ -5,7 +5,9 @@
 1. **考题一**：Excel 报表生成脚本（清洗 `sales_raw.xlsx` → 输出 `report.xlsx` 四个工作表）
 2. **考题二**：FastAPI 简易记账服务（`POST /records`、`GET /records`、`GET /summary`）
 
-需求澄清与拍板结论见 [`需求分析.md`](需求分析.md)，过程记录与复盘见 [`docs/AI协作记录与复盘.md`](docs/AI协作记录与复盘.md)。
+需求澄清与拍板结论见 [`需求分析.md`](需求分析.md)；
+过程记录与复盘见 [`docs/AI协作记录与复盘.md`](docs/AI协作记录与复盘.md)；
+逐条代码修改轨迹（含关键 diff 与复核命令）见 [`docs/代码修改轨迹.md`](docs/代码修改轨迹.md)。
 
 ## 环境要求
 
@@ -121,7 +123,7 @@ work/
 ├── Python_Vibe_Coding-lab1.docx  # 题目原件（仅供对照，非交付文档）
 ├── data/sales_raw.xlsx           # 样例原始数据（含脏数据，只读）
 ├── output/report.xlsx            # 考题一输出
-├── docs/                         # 测试运行结果、AI 协作记录与复盘
+├── docs/                         # 测试运行结果、AI 协作记录与复盘、代码修改轨迹
 │   └── images/                   # 运行结果截图（验收证据）
 ├── scripts/smoke_http.py         # 真实 HTTP 冒烟验证
 ├── src/
