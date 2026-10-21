@@ -87,9 +87,11 @@ python -m uvicorn src.ledger.main:app --host 127.0.0.1 --port 8000
 ## 三、测试
 
 ```bash
-python -m pytest -v                 # 全量 59 个用例
-python -m pytest tests/test_report_gen.py -v
+python -m pytest -v -o addopts=                 # 全量 59 个用例
+python -m pytest tests/test_report_gen.py -v -o addopts=
 ```
+
+> `-o addopts=` 用于覆盖 `pytest.ini` 里的 `addopts = -q`，否则看不到逐条用例名。
 
 完整运行结果见 [`docs/测试运行结果.txt`](docs/测试运行结果.txt)。
 
@@ -98,6 +100,15 @@ python -m pytest tests/test_report_gen.py -v
 ```bash
 python -m scripts.smoke_http
 ```
+
+### 运行结果截图
+
+| 场景 | 截图 |
+| --- | --- |
+| 全量测试开始（collected 59 items） | ![pytest 开始](docs/images/pytest-verbose-1.png) |
+| 全量测试过程（逐条用例名，中文不乱码） | ![pytest 过程](docs/images/pytest-verbose-2.png) |
+| 全量测试结果（59 passed） | ![pytest 结果](docs/images/pytest-summary-59-passed.png) |
+| 真实 uvicorn 进程冒烟（201 / 422 / 汇总） | ![冒烟验证](docs/images/smoke-http.png) |
 
 ## 四、目录结构
 
@@ -111,6 +122,7 @@ work/
 ├── data/sales_raw.xlsx           # 样例原始数据（含脏数据，只读）
 ├── output/report.xlsx            # 考题一输出
 ├── docs/                         # 测试运行结果、AI 协作记录与复盘
+│   └── images/                   # 运行结果截图（验收证据）
 ├── scripts/smoke_http.py         # 真实 HTTP 冒烟验证
 ├── src/
 │   ├── make_sample_data.py       # 样例脏数据生成
